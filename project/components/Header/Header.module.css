@@ -1,0 +1,21 @@
+.background {
+  background-color: white;
+  height: 10vh;
+  margin: 20px;
+  margin-right: 200px;
+  margin-left: 200px;
+}
+
+.flexmain {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex {
+  display: flex;
+  gap: 90px;
+}
+
+.shadow {
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+}

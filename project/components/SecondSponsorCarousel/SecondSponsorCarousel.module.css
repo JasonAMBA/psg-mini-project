@@ -1,0 +1,20 @@
+.sponsorCarousel {
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sponsorCarouselTrack {
+  display: flex;
+  white-space: nowrap;
+  margin: 20px;
+}
+
+.sponsorItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 20px;
+}

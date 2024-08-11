@@ -1,0 +1,53 @@
+.background {
+  background-color: #141D2B;
+  
+  color: #ffffff;
+}
+
+.container {
+  margin-right: 200px;
+  margin-left: 200px;
+}
+
+.flexbody {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.largetext{
+  font-size: 70px;
+}
+
+.center {
+  text-align: center;
+  margin: 20px;
+}
+
+.Btn {
+  background-color: #2588BA;
+  border-radius: 20px;
+  padding: 20px;
+  font-size: 50px;
+}
+
+.container2 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Trois colonnes pour les trois premiers éléments */
+  justify-items: center; /* Centre les éléments dans chaque colonne */
+  gap: 80px; /* Espace entre les colonnes */
+  align-items: center;
+}
+
+.item1, .item2, .item3 {
+  /* Styles pour les trois premiers éléments */
+}
+
+.item4 {
+  grid-column: 2 / 3; /* Place l'élément 4 centré sous le deuxième élément */
+  justify-self: center; /* Centre l'élément dans la deuxième colonne */
+}
+
+.marge{
+  margin: 80px;
+}

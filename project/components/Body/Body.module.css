@@ -25,10 +25,16 @@
 }
 
 .Btn {
-  background-color: #2588BA;
-  border-radius: 20px;
+  background-color: #005EB8;
+  color: white;
   padding: 20px;
-  font-size: 50px;
+  font-size: 30px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.Btn:hover {
+  background-color: #001F3F; /* Un bleu plus foncé au survol */
 }
 
 .container2 {
@@ -50,4 +56,100 @@
 
 .marge{
   margin: 80px;
+}
+
+.top {
+  margin-top: 2rem /* 32px */;
+}
+
+.position {
+  text-align: center;
+  font-size: 2.25rem /* 36px */;
+  line-height: 2.5rem /* 40px */;
+  font-weight: 700;
+  margin-block: 3rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 colonnes de taille égale */
+  gap: 2rem; /* Augmente l'espacement entre les cartes */
+}
+
+.containerCard {
+  cursor: pointer;
+  background-color: white;
+  padding: 1rem /* 16px */;
+  border-radius: 0.5rem /* 8px */;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  transition: border 0.2s ease-in-out;
+}
+
+.containerCard:hover {
+  border: 3px solid #005EB8;
+  
+}
+
+.containerAnimate {
+  position: fixed;
+  inset: 0px;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardAnimate {
+  background-color: white;
+  border-radius: 0.5rem /* 8px */;
+  padding: 2rem /* 32px */;
+  max-width: 42rem /* 672px */;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  border: 3px solid #005EB8; /* Bordure bleue pour correspondre au PSG */
+}
+
+.button {
+  position: absolute;
+  top: 1rem /* 16px */;
+  right: 1rem /* 16px */;
+  color: black;
+  font-size: 1.5rem /* 24px */;
+  line-height: 2rem /* 32px */;
+}
+
+.flexItems {
+  display: flex;
+  align-items: center;
+}
+
+.img {
+  width: 20rem /* 320px */;
+  height: 20rem /* 320px */;
+  border-radius: 0.5rem /* 8px */;
+  margin-right: 1.5rem /* 24px */;
+}
+
+.flexCol {
+  display: flex;
+  flex-direction: column;
+  color: black;
+}
+
+.playerName {
+  font-size: 1.5rem /* 24px */;
+  line-height: 2rem /* 32px */;
+  font-weight: 700;
+  margin-bottom: 0.5rem /* 8px */;
+}
+
+.number {
+  font-size: 1.5rem /* 24px */;
+  line-height: 2rem /* 32px */;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #ff1541;
 }

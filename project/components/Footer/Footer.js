@@ -1,13 +1,13 @@
-import styles from "./Header.module.css";
+import styles from "./Footer.module.css";
 import PSG from "../../public/assets/psg.png";
 import Nike from "../../public/assets/sponsors/nike.png";
 import Qatarairways from "../../public/assets/sponsors/qatarairways.png";
 import Image from "next/image";
 
-export default function Header() {
+export default function Footer() {
   return (
     <>
-      <header className={`${styles.background} ${styles.flexmain}`}>
+      <footer className={`${styles.background} ${styles.flexmain}`}>
         <div>
           <Image src={PSG} width={100} height={100}/>
         </div>
@@ -15,7 +15,7 @@ export default function Header() {
           <Image src={Nike} width={204} height={60}/>
           <Image src={Qatarairways} width={202} height={60}/>
         </div>
-      </header>
+      </footer>
     </>
   );
 }

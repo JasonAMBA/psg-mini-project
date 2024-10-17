@@ -20,7 +20,7 @@ const SecondSponsorCarousel = () => {
         className={styles.sponsorCarouselTrack}
         initial={{ x: '100%' }}
         animate={{ x: '-100%' }}
-        transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
+        transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
       >
         {sponsors.map((src, index) => (
           <motion.div

@@ -1,9 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
+import styles from "./PlayerCard.module.css"
 
 const PlayerCard = ({ player }) => (
-  <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-    <Image src={player.image} alt={player.name} width={500} height={500} className="w-full" />
+  <div className={styles.playerCard}>
+    <Image src={player.image} alt={player.name} width={400} height={400} className="w-full" />
   </div>
 );
 

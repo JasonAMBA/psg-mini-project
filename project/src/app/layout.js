@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "../../components/Header/Header";
 import { Abel } from "next/font/google";
 
+
 const inter = Inter({ subsets: ["latin"] });
 const abel = Abel({ subsets: ['latin'], weight: '400' });
 

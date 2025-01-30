@@ -9,11 +9,11 @@ export default function Header() {
     <>
       <header className={`${styles.background} ${styles.flexmain}`}>
         <div>
-          <Image src={PSG} width={100} height={100}/>
+          <Image className={styles.shadow} src={PSG} width={100} height={100}/>
         </div>
-        <div className={styles.flex}>
-          <Image src={Nike} width={204} height={60}/>
-          <Image src={Qatarairways} width={202} height={60}/>
+        <div className={`${styles.flex}`}>
+          <Image className={styles.shadow} src={Nike} width={204} height={60}/>
+          <Image className={styles.shadow} src={Qatarairways} width={202} height={60}/>
         </div>
       </header>
     </>

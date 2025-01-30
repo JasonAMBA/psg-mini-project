@@ -93,7 +93,6 @@
 .containerAnimate {
   position: fixed;
   inset: 0px;
-  background-color: black;
   background-color: rgba(0, 0, 0, 0.8);
   display: flex;
   align-items: center;

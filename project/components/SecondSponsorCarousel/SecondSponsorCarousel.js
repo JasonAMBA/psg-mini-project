@@ -5,12 +5,11 @@ import styles from './SecondSponsorCarousel.module.css';
 import { motion } from 'framer-motion';
 
 const sponsors = [
-  '/assets/sponsors/beinsports.png',
-  '/assets/sponsors/ea-sports.png',
-  '/assets/sponsors/parions-sport.png',
-  '/assets/sponsors/aspetar.png',
-  '/assets/sponsors/yassir.png',
-  
+  'https://psg-squad-project.s3.eu-north-1.amazonaws.com/Sponsors/beinsports.png',
+  'https://psg-squad-project.s3.eu-north-1.amazonaws.com/Sponsors/ea-sports.png',
+  'https://psg-squad-project.s3.eu-north-1.amazonaws.com/Sponsors/parions-sport.png',
+  'https://psg-squad-project.s3.eu-north-1.amazonaws.com/Sponsors/aspetar.png',
+  'https://psg-squad-project.s3.eu-north-1.amazonaws.com/Sponsors/yassir.png'
 ];
 
 const SecondSponsorCarousel = () => {

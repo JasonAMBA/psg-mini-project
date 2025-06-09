@@ -5,12 +5,11 @@ import styles from './SponsorCarousel.module.css';
 import { motion } from 'framer-motion';
 
 const sponsors = [
-  '/assets/sponsors/visitqatar.png',
-  '/assets/sponsors/all.png',
-  '/assets/sponsors/ooredoo.png',
-  '/assets/sponsors/visitrwanda.png',
-  '/assets/sponsors/qnb.png',
-  
+  'https://psg-squad-project.s3.eu-north-1.amazonaws.com/Sponsors/visitqatar.png',
+  'https://psg-squad-project.s3.eu-north-1.amazonaws.com/Sponsors/all.png',
+  'https://psg-squad-project.s3.eu-north-1.amazonaws.com/Sponsors/ooredoo.png',
+  'https://psg-squad-project.s3.eu-north-1.amazonaws.com/Sponsors/visitrwanda.png',
+  'https://psg-squad-project.s3.eu-north-1.amazonaws.com/Sponsors/qnb.png'
 ];
 
 const SponsorCarousel = () => {

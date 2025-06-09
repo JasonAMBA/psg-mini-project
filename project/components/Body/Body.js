@@ -8,10 +8,11 @@ import 'swiper/css';
 import 'swiper/css/effect-cards';
 import PlayerCard from "../PlayerCard/PlayerCard";
 import SecondSponsorCarousel from "../SecondSponsorCarousel/SecondSponsorCarousel";
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+
+import Image from "next/image";
+
 
 const players = [
   {
@@ -19,7 +20,7 @@ const players = [
     name: 'Bradley Barcola',
     position: 'Attaquant',
     strongFoot: 'Droit',
-    image: '/assets/players/barcola.png',
+    image: 'https://psg-squad-project.s3.eu-north-1.amazonaws.com/Forwards/Barcola.png',
     number: 29,
     nationality: 'France',
     height: 182,
@@ -30,7 +31,7 @@ const players = [
     name: 'Vitinha',
     position: 'Milieu',
     strongFoot: 'Droit',
-    image: '/assets/players/vitinha.png',
+    image: 'https://psg-squad-project.s3.eu-north-1.amazonaws.com/Midfielders/Vitinha.png',
     number: 17,
     nationality: 'Portugal',
     height: 172,
@@ -41,7 +42,7 @@ const players = [
     name: 'Ousmane Dembele',
     position: 'Attaquant',
     strongFoot: 'Ambidextre',
-    image: '/assets/players/dembele.png',
+    image: 'https://psg-squad-project.s3.eu-north-1.amazonaws.com/Forwards/Demb%C3%A9l%C3%A9.png',
     number: 10,
     nationality: 'France',
     height: 178,
@@ -49,21 +50,21 @@ const players = [
   },
   {
     id: 4,
-    name: 'Randal Kolo Muani',
+    name: 'Khvicha Kvaratskhelia',
     position: 'Attaquant',
-    strongFoot: 'Droit',
-    image: '/assets/players/kolo muani.png',
-    number: 23,
-    nationality: 'France',
-    height: 187,
-    birth: "5 décembre 1998",
+    strongFoot: 'Ambidextre',
+    image: 'https://psg-squad-project.s3.eu-north-1.amazonaws.com/Forwards/Kvaratskhelia.png',
+    number: 7,
+    nationality: 'Georgie',
+    height: 183,
+    birth: "12 février 2001",
   },
   {
     id: 5,
     name: 'Gonçalo Ramos',
     position: 'Attaquant',
     strongFoot: 'Droit',
-    image: '/assets/players/ramos.png',
+    image: 'https://psg-squad-project.s3.eu-north-1.amazonaws.com/Forwards/Ramos.png',
     number: 9,
     nationality: 'Portugal',
     height: 185,
@@ -71,21 +72,21 @@ const players = [
   },
   {
     id: 6,
-    name: 'Marco Asensio',
+    name: 'Ibrahim Mbaye',
     position: 'Attaquant',
     strongFoot: 'Droit',
-    image: '/assets/players/Asensio.png',
-    number: 11,
-    nationality: 'Espagne',
-    height: 182,
-    birth: "21 janvier 1996",
+    image: 'https://psg-squad-project.s3.eu-north-1.amazonaws.com/Forwards/Mbaye.png',
+    number: 49,
+    nationality: 'France',
+    height: 185,
+    birth: "24 janvier 2008",
   },
   {
     id: 7,
     name: 'Désiré Doué',
     position: 'Attaquant',
     strongFoot: 'Droit',
-    image: '/assets/players/Doué.png',
+    image: 'https://psg-squad-project.s3.eu-north-1.amazonaws.com/Forwards/Dou%C3%A9.png',
     number: 14,
     nationality: 'France',
     height: 181,
@@ -96,7 +97,7 @@ const players = [
     name: 'Gianluigi Donnarumma',
     position: 'Gardien',
     strongFoot: 'Droit',
-    image: '/assets/players/Donnarumma.png',
+    image: 'https://psg-squad-project.s3.eu-north-1.amazonaws.com/Goalkeepers/Donnarumma.png',
     number: 1,
     nationality: 'Italie',
     height: 196,
@@ -107,7 +108,7 @@ const players = [
     name: 'Matvey Safonov',
     position: 'Gardien',
     strongFoot: 'Droit',
-    image: '/assets/players/Safonov.png',
+    image: 'https://psg-squad-project.s3.eu-north-1.amazonaws.com/Goalkeepers/Safonov.png',
     number: 39,
     nationality: 'Russie',
     height: 192,
@@ -118,7 +119,7 @@ const players = [
     name: 'Arnau Tenas',
     position: 'Gardien',
     strongFoot: 'Droit',
-    image: '/assets/players/Tenas.png',
+    image: 'https://psg-squad-project.s3.eu-north-1.amazonaws.com/Goalkeepers/Tenas.png',
     number: 80,
     nationality: 'Espagne',
     height: 185,
@@ -129,7 +130,7 @@ const players = [
     name: 'Warren Zaïre-Emery',
     position: 'Milieu',
     strongFoot: 'Droit',
-    image: '/assets/players/Warren.png',
+    image: 'https://psg-squad-project.s3.eu-north-1.amazonaws.com/Midfielders/Warren.png',
     number: 33,
     nationality: 'France',
     height: 178,
@@ -140,7 +141,7 @@ const players = [
     name: 'Fabian Ruiz',
     position: 'Milieu',
     strongFoot: 'Gauche',
-    image: '/assets/players/Ruiz.png',
+    image: 'https://psg-squad-project.s3.eu-north-1.amazonaws.com/Midfielders/Ruiz.png',
     number: 8,
     nationality: 'Espagne',
     height: 189,
@@ -151,7 +152,7 @@ const players = [
     name: 'Lee Kang-in',
     position: 'Milieu',
     strongFoot: 'Gauche',
-    image: '/assets/players/Lee.png',
+    image: 'https://psg-squad-project.s3.eu-north-1.amazonaws.com/Midfielders/Lee.png',
     number: 19,
     nationality: 'Corée du Sud',
     height: 173,
@@ -162,7 +163,7 @@ const players = [
     name: 'Marquinhos',
     position: 'Défenseur',
     strongFoot: 'Droit',
-    image: '/assets/players/Marquinhos.png',
+    image: 'https://psg-squad-project.s3.eu-north-1.amazonaws.com/Defenders/Marquinhos.png',
     number: 5,
     nationality: 'Brésil',
     height: 183,
@@ -173,7 +174,7 @@ const players = [
     name: 'Presnel Kimpembe',
     position: 'Défenseur',
     strongFoot: 'Gauche',
-    image: '/assets/players/Kimpembe.png',
+    image: 'https://psg-squad-project.s3.eu-north-1.amazonaws.com/Defenders/Kimpembe.png',
     number: 3,
     nationality: 'France',
     height: 183,
@@ -184,7 +185,7 @@ const players = [
     name: 'Achraf Hakimi',
     position: 'Défenseur',
     strongFoot: 'Droit',
-    image: '/assets/players/Hakimi.png',
+    image: 'https://psg-squad-project.s3.eu-north-1.amazonaws.com/Defenders/Hakimi.png',
     number: 2,
     nationality: 'Maroc',
     height: 181,
@@ -195,7 +196,7 @@ const players = [
     name: 'Nuno Mendes',
     position: 'Défenseur',
     strongFoot: 'Gauche',
-    image: '/assets/players/Mendes.png',
+    image: 'https://psg-squad-project.s3.eu-north-1.amazonaws.com/Defenders/Mendes.png',
     number: 25,
     nationality: 'Portugal',
     height: 180,
@@ -206,7 +207,7 @@ const players = [
     name: 'Lucas Hernandez',
     position: 'Défenseur',
     strongFoot: 'Gauche',
-    image: '/assets/players/Hernandez.png',
+    image: 'https://psg-squad-project.s3.eu-north-1.amazonaws.com/Defenders/Hernandez.png',
     number: 21,
     nationality: 'France',
     height: 184,
@@ -217,7 +218,7 @@ const players = [
     name: 'Willian Pacho',
     position: 'Défenseur',
     strongFoot: 'Gauche',
-    image: '/assets/players/Pacho.png',
+    image: 'https://psg-squad-project.s3.eu-north-1.amazonaws.com/Defenders/Pacho.png',
     number: 51,
     nationality: 'Equateur',
     height: 188,
@@ -228,7 +229,7 @@ const players = [
     name: 'Joao Neves',
     position: 'Milieu',
     strongFoot: 'Droit',
-    image: '/assets/players/Neves.png',
+    image: 'https://psg-squad-project.s3.eu-north-1.amazonaws.com/Midfielders/Neves.png',
     number: 87,
     nationality: 'Portugal',
     height: 174,
@@ -239,7 +240,7 @@ const players = [
     name: 'Lucas Beraldo',
     position: 'Défenseur',
     strongFoot: 'Gauche',
-    image: '/assets/players/Beraldo.png',
+    image: 'https://psg-squad-project.s3.eu-north-1.amazonaws.com/Defenders/Beraldo.png',
     number: 35,
     nationality: 'Brésil',
     height: 182,
@@ -247,42 +248,33 @@ const players = [
   },
   {
     id: 22,
-    name: 'Milan Škriniar',
-    position: 'Défenseur',
-    strongFoot: 'Droit',
-    image: '/assets/players/Skriniar.png',
-    number: 37,
-    nationality: 'Slovaquie',
-    height: 188,
-    birth: "11 février 1995",
+    name: 'Senny Mayulu',
+    position: 'Milieu',
+    strongFoot: 'Ambidextre',
+    image: 'https://psg-squad-project.s3.eu-north-1.amazonaws.com/Midfielders/Mayulu.png',
+    number: 24,
+    nationality: 'France',
+    height: 183,
+    birth: "17 mai 2006",
   },
   {
     id: 23,
     name: 'Yoram Zague',
     position: 'Défenseur',
     strongFoot: 'Droit',
-    image: '/assets/players/Zague.png',
+    image: 'https://psg-squad-project.s3.eu-north-1.amazonaws.com/Defenders/Zague.png',
     number: 42,
     nationality: 'France',
     height: 168,
     birth: "15 mai 2006",
-  },
-  // Ajoute d'autres joueurs ici
+  }
 ];
 
 export default function Body() {
   const [selectedPlayer, setSelectedPlayer] = useState(null);
 
-  // Initialiser AOS
-  useEffect(() => {
-    AOS.init({
-      duration: 500, // Durée de l'animation en millisecondes
-    });
-  }, []);
-
   // Filtrer les joueurs par poste
   const getPlayersByPosition = (position) => players.filter(player => player.position === position);
-
 
   return (
     <>
@@ -407,6 +399,7 @@ export default function Body() {
                     className={styles.img}
                   />
                   <div className={styles.flexCol}>
+                    <Image className={styles.center} src="https://psg-squad-project.s3.eu-north-1.amazonaws.com/psg.png" width={75} height={75}/>
                     <h2 className={styles.number}>n°{selectedPlayer.number}</h2>
                     <h2 className={styles.playerName}>{selectedPlayer.name} </h2>
                     <p>Date de naissance : {selectedPlayer.birth}</p>

@@ -8,10 +8,10 @@ import 'swiper/css';
 import 'swiper/css/effect-cards';
 import PlayerCard from "../PlayerCard/PlayerCard";
 import SecondSponsorCarousel from "../SecondSponsorCarousel/SecondSponsorCarousel";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-
 import Image from "next/image";
+import EasterEggModal from "../EasterEgg/EasterEggModal";
 
 
 const players = [
@@ -272,6 +272,21 @@ const players = [
 
 export default function Body() {
   const [selectedPlayer, setSelectedPlayer] = useState(null);
+  const [showEasterEgg, setShowEasterEgg] = useState(false);
+
+  useEffect(() => {
+    if (selectedPlayer) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    // Cleanup au démontage du composant
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedPlayer]);
+
 
   // Filtrer les joueurs par poste
   const getPlayersByPosition = (position) => players.filter(player => player.position === position);
@@ -282,13 +297,12 @@ export default function Body() {
         <div className={styles.container}>
           <div><SponsorCarousel/></div>
           <div className={styles.container2}>
-            <div className={`${styles.largetext} ${styles.item} ${styles.item1}`}>Effectif du PSG</div>
-            <div className={`${styles.item} ${styles.item2}`}>
+            <div className={styles.largetext}>Effectif du PSG</div>
+            <div className={styles.overflowAndMarge}>
               <Swiper
                 effect="cards"
                 grabCursor={true}
                 modules={[EffectCards]}
-                className="mySwiper"
               >
                 {players.slice(0, 5).map((player, index) => (
                   <SwiperSlide key={index}>
@@ -297,8 +311,8 @@ export default function Body() {
                 ))}
               </Swiper>
             </div>
-            <div className={`${styles.largetext} ${styles.item} ${styles.item3}`}>2024-2025</div>
-            <div className={`${styles.item} ${styles.item4}`}><button className={styles.Btn} onClick={() => {
+            <div className={styles.largetext}>2024-2025</div>
+            <div className={styles.cta}><button className={styles.Btn} onClick={() => {
               document.getElementById('gardiens-section').scrollIntoView({behavior:'smooth'});
             }}>C'est parti !</button></div>
           </div>
@@ -315,9 +329,9 @@ export default function Body() {
               {getPlayersByPosition('Gardien').map((player) => (
                 <motion.div
                   key={player.id}
-                  layoutId={`player-${player.id}`}
                   onClick={() => setSelectedPlayer(player)}
                   className={styles.containerCard}
+                  whileHover={{ scale: 1.02 }}
                 >
                   <PlayerCard player={player} />
                 </motion.div>
@@ -331,9 +345,9 @@ export default function Body() {
               {getPlayersByPosition('Défenseur').map((player) => (
                 <motion.div
                   key={player.id}
-                  layoutId={`player-${player.id}`}
                   onClick={() => setSelectedPlayer(player)}
                   className={styles.containerCard}
+                  whileHover={{ scale: 1.02 }}
                 >
                   <PlayerCard player={player} />
                 </motion.div>
@@ -347,9 +361,9 @@ export default function Body() {
               {getPlayersByPosition('Milieu').map((player) => (
                 <motion.div
                   key={player.id}
-                  layoutId={`player-${player.id}`}
                   onClick={() => setSelectedPlayer(player)}
                   className={styles.containerCard}
+                  whileHover={{ scale: 1.02 }}
                 >
                   <PlayerCard player={player} />
                 </motion.div>
@@ -363,9 +377,9 @@ export default function Body() {
               {getPlayersByPosition('Attaquant').map((player) => (
                 <motion.div
                   key={player.id}
-                  layoutId={`player-${player.id}`}
                   onClick={() => setSelectedPlayer(player)}
                   className={styles.containerCard}
+                  whileHover={{ scale: 1.02 }}
                 >
                   <PlayerCard player={player} />
                 </motion.div>
@@ -379,13 +393,16 @@ export default function Body() {
         <AnimatePresence>
           {selectedPlayer && (
             <motion.div
-              layoutId={`player-${selectedPlayer.id}`}
               className={styles.containerAnimate}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-              <motion.div className={styles.cardAnimate}>
+              <motion.div className={styles.cardAnimate}
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+              >
                 <button
                   onClick={() => setSelectedPlayer(null)}
                   className={styles.button}
@@ -413,6 +430,15 @@ export default function Body() {
             </motion.div>
           )}
         </AnimatePresence>
+
+        <div onClick={() => setShowEasterEgg(true)} className={styles.easterEgg}>
+          <Image src="https://psg-squad-project.s3.eu-north-1.amazonaws.com/champions-league.png" alt="ucl-icon" width={45} height={45} />
+        </div>
+
+        {/* Modale de l'easter egg */}
+        {showEasterEgg && (
+          <EasterEggModal onClose={() => setShowEasterEgg(false)} />
+        )}
       </div>
       
     </>

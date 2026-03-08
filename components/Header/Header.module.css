@@ -1,22 +1,89 @@
 .background {
   background-color: white;
-  height: 10vh;
-  margin: 20px;
-  margin-right: 200px;
-  margin-left: 200px;
-  backdrop-filter: blur(40px);
+  min-height: 10vh;
+  padding: 10px 200px;
+  width: 100%;
 }
 
 .flexmain {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .flex {
   display: flex;
+  align-items: center;
   gap: 90px;
 }
 
 .shadow {
-  filter: drop-shadow(10px 10px 15px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(10px 10px 15px rgba(0, 0, 0, 0.5));
+}
+
+.logoContainer {
+  min-width: 100px;
+  max-width: 100px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 1024px) {
+  .background {
+    padding: 10px 40px;
+  }
+
+  .flex {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .background {
+    padding: 15px 20px;
+  }
+
+  .flexmain {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .flex {
+    flex-direction: row;
+    gap: 30px;
+    justify-content: center;
+  }
+
+  .shadow {
+    width: auto !important;
+    height: 45px !important;
+    max-width: 100% !important;
+  }
+
+  .logoContainer {
+    min-width: 80px;
+    max-width: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .background {
+    padding: 10px 12px;
+  }
+
+  .flexmain {
+    gap: 10px;
+  }
+
+  .flex {
+    gap: 16px;
+  }
+
+  .shadow {
+    height: 35px !important;
+  }
+
+  .logoContainer {
+    min-width: 70px;
+    max-width: 70px;
+  }
 }

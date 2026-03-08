@@ -2,15 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-.container {
-  width: 100%;
-  margin-right: 50px;
-  margin-left: 50px;
-}
-
 .swiper {
-  width: 400px;
-  height: 400px;
+  width: clamp(250px, 60vw, 400px);
+  height: clamp(250px, 60vw, 400px);
+  max-width: 100% !important;
 }
 
 .swiper-slide {

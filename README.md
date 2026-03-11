@@ -1,36 +1,23 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# ⚽ PSG Squad Project
 
-## Getting Started
+Site web dédié à l'effectif du Paris Saint-Germain pour la saison 2024-2025. En cliquant sur la carte d'un joueur, vous pouvez consulter ses informations détaillées : nom, prénom, date de naissance, poste, nationalité, taille et pied fort.
 
-First, run the development server:
+🔗 [Voir le site en ligne](https://psg-mini-project.vercel.app/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🛠️ Technologies utilisées
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![Swiper](https://img.shields.io/badge/Swiper-6332F6?style=for-the-badge&logo=swiper&logoColor=white)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white)
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 📸 Captures d'écrans
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+<img width="700" alt="Accueil" src="https://github.com/user-attachments/assets/0320ba2b-94a0-4ea9-955c-4bd7460352da" />
 
-## Learn More
+<img width="700" alt="Effectif" src="https://github.com/user-attachments/assets/52792f64-c86a-4dcf-89d6-9a467fa2bfd4" />
 
-To learn more about Next.js, take a look at the following resources:
+<img width="700" alt="Fiche joueur" src="https://github.com/user-attachments/assets/c72aac7f-aeef-40e9-97f6-ee61bc98d23c" />
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 🥚 Easter Egg
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Clique sur le trophée de la ligue des champions en bas à gauche pour une surprise...
